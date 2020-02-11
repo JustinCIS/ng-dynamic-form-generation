@@ -1,0 +1,50 @@
+<div class="component-container">
+    <mat-card class="card-container">
+        <mat-card-header class="header-container">
+        Bold Penguin
+        </mat-card-header>
+        <mat-card-content class="content-container">
+            <mat-card>
+                <mat-card-content>
+                    <form [formGroup]="customQuoteForm" (ngSubmit)="saveCustomQuote()">
+                        <h1>Your custom quote starts here</h1>
+                        <h4>This is going to be amazing.</h4>
+                    <div *ngFor="let question of questions" [ngSwitch]="question.type">
+                        <div *ngSwitchCase="'input'">
+                            <mat-label>{{question.text}}</mat-label>
+                            <mat-form-field appearance="outline">
+                                <div *ngIf="question.id !== 4">
+                                    <input matInput [id]="question.id" [type]="question.type" [formControlName]="question.id">
+                                </div>
+                                <div *ngIf="question.id === 4">
+                                    <input type="text" matInput [formControlName]="question.id" [matAutocomplete]="auto">
+                                    <mat-autocomplete #auto="matAutocomplete">
+                                        <mat-option *ngFor="let naics of filteredNAICS | async" [value]="naics.description">
+                                        {{naics.description}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </div>    
+                            </mat-form-field>
+                        </div>
+                    
+                        <div *ngSwitchCase="'select'">
+                            <mat-label>{{question.text}}</mat-label>
+                            <mat-form-field appearance="outline">
+                            <mat-select [formControlName]="question.id">
+                                <mat-option *ngFor="let opt of question.options" [value]="opt.id">
+                                {{opt?.text}}
+                                </mat-option>
+                            </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div style="text-align:right;">
+                    <button type="reset" class="clear-button">Cancel</button><button type="submit" class="submit-button">Submit</button>
+                    </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+            
+        </mat-card-content>
+    </mat-card>
+</div>

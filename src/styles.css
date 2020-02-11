@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.clear-button {
+    padding: 10;
+    border: none;
+    background: none;
+}
+
+.submit-button {
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background-color:#33bdef;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:12px;
+	font-weight:bold;
+	padding:6px 14px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+.submit-button:hover {
+	background-color:#019ad2;
+}
+.submit-button:active {
+	position:relative;
+	top:1px;
+}

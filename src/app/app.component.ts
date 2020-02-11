@@ -74,7 +74,7 @@ export class AppComponent implements OnInit {
     return new FormGroup(group);
   }
 
-  private saveCustomQuote() {
+  saveCustomQuote() {
     if (this.customQuoteForm.invalid) {
       console.log('Please check form values and try again');
       return;
